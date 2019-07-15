@@ -79,10 +79,24 @@ class MainVC: UIViewController, UITableViewDelegate ,UITableViewDataSource, NSFe
         }
     }
     
+    @IBAction func sorterPressed(_ sender: UISegmentedControl) {
+        attempFetchRequest()
+        tableView.reloadData()
+    }
+    
     func attempFetchRequest(){
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
+        
+        if segmentView.selectedSegmentIndex == 0 {
+            fetchRequest.sortDescriptors = [dateSort]
+        }else if segmentView.selectedSegmentIndex == 1 {
+            fetchRequest.sortDescriptors = [priceSort]
+        }else{
+            fetchRequest.sortDescriptors = [titleSort]
+        }
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         

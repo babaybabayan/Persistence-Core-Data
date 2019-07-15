@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IWe-EY-UK4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IWe-EY-UK4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,6 +29,9 @@
                                     <segment title="Title"/>
                                 </segments>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="sorterPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="poo-bi-ac2"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gpS-hY-9g7">
                                 <rect key="frame" x="20" y="132" width="335" height="535"/>
@@ -52,8 +55,9 @@
                                                                 <constraint firstAttribute="width" constant="100" id="WXy-qu-ejo"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="materialImage" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tesla Model S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgb-gD-5ym">
@@ -163,6 +167,9 @@
                                     <constraint firstAttribute="width" constant="100" id="Zlw-Yf-9aL"/>
                                     <constraint firstAttribute="height" constant="100" id="xF4-5c-Vd4"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="imgPressed:" destination="hfh-JP-xhK" eventType="touchUpInside" id="WXj-hg-pyN"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P5Q-wh-TX1">
                                 <rect key="frame" x="124" y="80" width="243" height="40"/>
@@ -253,12 +260,16 @@
                     <navigationItem key="navigationItem" title="add/edit" id="SZf-a3-Zig">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="tac-IJ-D6N">
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="hfh-JP-xhK" id="fcT-hd-Tvx"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailField" destination="oNL-yf-zhF" id="NoN-6E-Hb9"/>
                         <outlet property="priceField" destination="WSN-9g-huM" id="Wln-dK-kPf"/>
                         <outlet property="storePicker" destination="Bs7-1B-YC7" id="3rc-A5-FwT"/>
+                        <outlet property="thumbImg" destination="VzA-Yy-T1y" id="I6j-pP-N9I"/>
                         <outlet property="titleField" destination="P5Q-wh-TX1" id="qKT-sh-i2I"/>
                     </connections>
                 </viewController>
@@ -286,7 +297,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="selectImage" width="294" height="240"/>
+        <image name="selectImage" width="147" height="120"/>
         <image name="teslaSatu" width="278" height="181"/>
     </resources>
     <inferredMetricsTieBreakers>

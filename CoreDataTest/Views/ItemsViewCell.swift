@@ -10,7 +10,6 @@ import UIKit
 
 class ItemsViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -20,6 +19,7 @@ class ItemsViewCell: UITableViewCell {
         titleLabel.text = item.title
         priceLabel.text = "$\(item.price)"
         detailLabel.text = item.details
+        profileImage.image = item.toImage?.image as? UIImage
     }
     
 }
